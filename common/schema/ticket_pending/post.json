@@ -1,0 +1,44 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "#/fusionpbx-go-api/common/schema/ticket_pending/post.json",
+    "title": "post",
+    "type": "object",
+    "description": "create-ticket-pending",
+    "required": [
+        "channel",
+        "domain_uuid",
+        "ticket_category_uuid",
+        "unit_uuid",
+        "solution_uuid"
+    ],
+    "properties": {
+        "channel": {
+            "type": "string",
+            "enum": [
+                "chat_in_app",
+                "facebook",
+                "zalo"
+            ]
+        },
+        "customer_id": {
+            "type": "string",
+            "minLength": 0
+        },
+        "domain_uuid": {
+            "type": "string",
+            "minLength": 1
+        },
+        "ticket_category_uuid": {
+            "type": "string",
+            "minLength": 1
+        },
+        "unit_uuid": {
+            "type": "string",
+            "minLength": 1
+        },
+        "solution_uuid": {
+            "type": "string",
+            "minLength": 1
+        }
+    }
+}

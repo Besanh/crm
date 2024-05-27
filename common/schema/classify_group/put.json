@@ -1,0 +1,30 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "#/contactcenter-api/common/schema/classify_group/put.json",
+    "title": "put",
+    "type": "object",
+    "description": "put",
+    "required": [
+        "group_name",
+        "group_type",
+        "status"
+    ],
+    "properties": {
+        "group_name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 48
+        },
+        "group_type": {
+            "type": "string",
+            "enum": [
+                "staff",
+                "member"
+            ]
+        },
+        "status": {
+            "type": "boolean",
+            "default": false
+        }
+    }
+}

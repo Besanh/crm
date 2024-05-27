@@ -1,0 +1,88 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "#/fusionpbx-go-api/common/schema/fe/create-ticket.json",
+    "title": "create-ticket",
+    "type": "object",
+    "description": "create-ticket",
+    "required": [
+        "ticket_category_uuid",
+        "unit_uuid",
+        "subject",
+        "solving_content"
+    ],
+    "properties": {
+        "channel": {
+            "type": "string",
+            "description": "channel"
+        },
+        "solving_content": {
+            "anyOf": [
+                {
+                    "type": "string",
+                    "description": "solving_content",
+                    "minLength": 1,
+                    "maxLength": 20000
+                },
+                {
+                    "type": "string",
+                    "maxLength": 0
+                }
+            ]
+        },
+        "unit_uuid": {
+            "type": "string",
+            "description": "unit uuid"
+        },
+        "subject": {
+            "type": "string",
+            "description": "Subject",
+            "minLength": 1,
+            "maxLength": 500
+        },
+        "content": {
+            "anyOf": [
+                {
+                    "type": "string",
+                    "description": "solving_content",
+                    "minLength": 1,
+                    "maxLength": 20000
+                },
+                {
+                    "type": "string",
+                    "maxLength": 0
+                }
+            ]
+        },
+        "priority": {
+            "type": "string",
+            "required": [
+                "normal",
+                "high",
+                "urgent"
+            ]
+        },
+        "ticket_category_uuid": {
+            "type": "string"
+        },
+        "solution_uuid": {
+            "anyOf": [
+                {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 50
+                },
+                {
+                    "type": "string",
+                    "maxLength": 0
+                }
+            ]
+        },
+        "status": {
+            "type": "string",
+            "enum": [
+                "OPEN",
+                "SOLVED"
+            ]
+        }
+    }
+}

@@ -1,2 +1,1 @@
-# crm
-Include all service for crm
+[![CICD - Deploy To Elastic Server](https://github.com/tel4vn/contactcenter-api/actions/workflows/cicd_elastic_server.yml/badge.svg)](https://github.com/tel4vn/contactcenter-api/actions/workflows/cicd_elastic_server.yml)

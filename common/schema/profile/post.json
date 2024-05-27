@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "#/fusionpbx-go-api/common/schema/profile/post.json",
+  "title": "profile",
+  "type": "object",
+  "description": "create-profile",
+  "required": [
+    "fullname",
+    "phone_number",
+    "contact_uuid",
+    "status",
+    "profile_type"
+  ],
+  "properties": {
+    "fullname": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "phone_number": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "contact_uuid": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "status": {
+      "type": "boolean",
+      "default": false
+    },
+    "profile_type": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255,
+      "enum": [
+        "primary",
+        "relation"
+      ]
+    }
+  },
+  "if": {
+    "properties": {
+      "profile_type": {
+        "const": "relation"
+      }
+    }
+  },
+  "then": {
+    "properties": {
+      "profile_name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "related_profile_uuid": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      }
+    }
+  }
+}

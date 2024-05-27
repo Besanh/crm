@@ -1,0 +1,36 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "#/contactcenter-api/common/schema/classify_tag/post.json",
+    "title": "post",
+    "type": "object",
+    "description": "post",
+    "required": [
+        "tag_name",
+        "limited_function",
+        "status"
+    ],
+    "properties": {
+        "tag_name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 48
+        },
+        "limited_function": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "customer",
+                    "user",
+                    "cdr",
+                    "ticket",
+                    "omni_channel"
+                ]
+            }
+        },
+        "status": {
+            "type": "boolean",
+            "default": false
+        }
+    }
+}

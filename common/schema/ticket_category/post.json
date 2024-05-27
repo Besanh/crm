@@ -1,0 +1,64 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "#/contactcenter-api/common/schema/ticket_category/post.json",
+    "title": "post",
+    "type": "object",
+    "description": "post",
+    "required": [
+        "ticket_category_name",
+        "ticket_category_code"
+    ],
+    "properties": {
+        "parent_ticket_category_uuid": {
+            "anyOf": [
+                {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 50,
+                    "pattern": "^[a-zA-Z0-9\\s.\\-\\_]+$"
+                },
+                {
+                    "type": "string",
+                    "maxLength": 0
+                }
+            ]
+        },
+        "ticket_category_name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+        },
+        "ticket_category_code": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20
+        },
+        "is_active": {
+            "type": "boolean",
+            "default": true
+        },
+        "sla_policies": {
+            "type": "array",
+            "minItems": 3,
+            "items": {
+                "type": "object",
+                "required": [
+                    "status",
+                    "priority",
+                    "response_time"
+                ],
+                "properties": {
+                    "status": {
+                        "type": "string"
+                    },
+                    "priority": {
+                        "type": "string"
+                    },
+                    "response_time": {
+                        "type": "integer"
+                    }
+                }
+            }
+        }
+    }
+}

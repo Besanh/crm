@@ -1,0 +1,22 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "#/contactcenter-api/common/schema/unit/post.json",
+    "title": "post",
+    "type": "object",
+    "description": "post",
+    "required": [
+        "role_group_name",
+        "status"
+    ],
+    "properties": {
+        "role_group_name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+        },
+        "status": {
+            "type": "boolean",
+            "default": false
+        }
+    }
+}

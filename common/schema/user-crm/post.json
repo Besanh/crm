@@ -1,0 +1,80 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"$id": "#/fusionpbx-go-api/common/schema/user-crm/post.json",
+	"title": "post",
+	"type": "object",
+	"description": "post",
+	"required": [
+		"role_uuid",
+		"last_name",
+		"middle_name",
+		"first_name",
+		"is_create_extension",
+		"user_enabled"
+	],
+	"properties": {
+		"last_name": {
+			"anyOf": [
+				{
+					"type": "string",
+					"minLength": 1,
+					"maxLength": 200
+				},
+				{
+					"type": "string",
+					"maxLength": 0
+				}
+			]
+		},
+		"middle_name": {
+			"anyOf": [
+				{
+					"type": "string",
+					"minLength": 1,
+					"maxLength": 200
+				},
+				{
+					"type": "string",
+					"maxLength": 0
+				}
+			]
+		},
+		"first_name": {
+			"type": "string",
+			"minLength": 1,
+			"maxLength": 200
+		},
+		"username": {
+			"type": "string",
+			"minLength": 1,
+			"maxLength": 32,
+			"pattern": "^[a-zA-Z0-9\\s.\\-\\_]+$"
+		},
+		"password": {
+			"type": "string",
+			"minLength": 1,
+			"maxLength": 32
+		},
+		"level": {
+			"type": "string",
+			"enum": [
+				"superadmin",
+				"admin",
+				"agent",
+				"user",
+				"leader",
+				"manager"
+			]
+		},
+		"is_create_extension": {
+			"type": "boolean"
+		},
+		"user_enabled": {
+			"type": "string",
+			"enum": [
+				"true",
+				"false"
+			]
+		}
+	}
+}
